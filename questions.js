@@ -4,7 +4,9 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const mysql = require('mysql');
-const client = require('twilio')($ACCOUNT_SID, $AUTH_TOKEN);
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
 
 const app = express();
 
