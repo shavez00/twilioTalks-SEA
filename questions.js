@@ -7,6 +7,7 @@ const mysql = require('mysql');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
+const from = '+12063502614';
 
 const app = express();
 
@@ -44,13 +45,13 @@ app.post('/', (req, res) => {
         client.messages
           .create({
              body: 'Registered!',
-             from: '+12063502614',
+             from: from,
              to: '+' + player
            });
         client.messages
           .create({
              body: 'First question.  How long has Twilio been in business?',
-             from: '+12063502614',
+             from: from,
              to: '+' + player
            });
            console.log(player + ' registered.');
@@ -58,7 +59,7 @@ app.post('/', (req, res) => {
         client.messages
           .create({
              body: 'You are already registered.  First question.  How long has Twilio been in business?',
-             from: '+12063502614',
+             from: from,
              to: '+' + player
            });
         console.log(player + ' re-registered.');
@@ -86,7 +87,7 @@ app.post('/', (req, res) => {
         client.messages
           .create({
              body: 'After the SendGrid acquisition how many customers does Twilio now have?',
-             from: '+12063502614',
+             from: from,
              to: '+' + player
           });
       } else { //end of Q1 = null
@@ -108,7 +109,7 @@ app.post('/', (req, res) => {
             client.messages
               .create({
                  body: 'Which is not a valid TwiML Programmable Voice action?  Pay, Find, Gather, or Say',
-                 from: '+12063502614',
+                 from: from,
                  to: '+' + player
               });
           } else { //end of Q2 = null
@@ -130,7 +131,7 @@ app.post('/', (req, res) => {
                 client.messages
                   .create({
                      body: 'Which of these languages is NOT a supported Twilio SDK language?  C#, Java, Python, Go',
-                     from: '+12063502614',
+                     from: from,
                      to: '+' + player
                   });
               } else { // end of Q3 = null
@@ -152,7 +153,7 @@ app.post('/', (req, res) => {
                     client.messages
                       .create({
                          body: 'Twilio Flex is built to scale to how many call center agents per instance?',
-                         from: '+12063502614',
+                         from: from,
                          to: '+' + player
                       });
                   } else { // end of Q4 = null
@@ -174,7 +175,7 @@ app.post('/', (req, res) => {
                         client.messages
                           .create({
                              body: "Twilio's CEO Jeff Lawson has worked at what Seattle based company?",
-                             from: '+12063502614',
+                             from: from,
                              to: '+' + player
                           });
                       } else { // end of Q5 = null
@@ -196,7 +197,7 @@ app.post('/', (req, res) => {
                             client.messages
                               .create({
                                  body: "What object does Twilio's logo respresent? Phone, Button, Jeff Lawson Family Crest, None",
-                                 from: '+12063502614',
+                                 from: from,
                                  to: '+' + player
                               });
                           } else { // end of Q6 = null
@@ -218,7 +219,7 @@ app.post('/', (req, res) => {
                                 client.messages
                                   .create({
                                      body: 'Which Twilio API can be leveraged for building intelligent bots, IVRs, and Alexa apps, using natural language understanding and machine learning framework?',
-                                     from: '+12063502614',
+                                     from: from,
                                      to: '+' + player
                                   });
                               } else { // end of Q7 = null
@@ -240,7 +241,7 @@ app.post('/', (req, res) => {
                                     client.messages
                                       .create({
                                          body: 'Which Twilio customer uses Authy for account security? Pinterest, Twitch, TransferWise, All of them',
-                                         from: '+12063502614',
+                                         from: from,
                                          to: '+' + player
                                       });
                                   } else { // end of Q8 = null
@@ -262,14 +263,14 @@ app.post('/', (req, res) => {
                                         client.messages
                                           .create({
                                              body: "Thank you for playing, and we hope to see you at Twilio's customer and developer conference in San Francisco August 6 & 7th, Twilio Signal. https://signal.twilio.com/",
-                                             from: '+12063502614',
+                                             from: from,
                                              to: '+' + player
                                           });
                                       } else { // end of Q9 = null
                                         client.messages
                                           .create({
                                              body: "Thanks for playing, you've come to the end of the road.  https://youtu.be/zDKO6XYXioc?t=63",
-                                             from: '+12063502614',
+                                             from: from,
                                              to: '+' + player
                                           });
                                       } //end of Q9 if/else
