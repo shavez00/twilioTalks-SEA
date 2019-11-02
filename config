@@ -1,0 +1,6 @@
+module.exports.accountSid = process.env.TWILIO_ACCOUNT_SID;
+module.exports.authToken = process.env.TWILIO_AUTH_TOKEN;
+module.exports.from = '+15034338486';
+module.exports.databasePW = process.env.DATABASE_PW;
+module.exports.databaseUsername = process.env.DATABASE_USER_NAME;
+module.exports.database = process.env.DATABASE;

@@ -7,7 +7,8 @@ This is a Node.js program to demonstrate the Twilio Programmable SMS API by send
 Step 1.  Install Node.js.</br>
 Step 2.  Install MySQL.</br>
 Step 3.  Install [Express](https://expressjs.com/).
-Step 4.  Run the Node.js program.</br>
+Step 4.  Save your [Account SID and Auth Token](https://www.twilio.com/docs/usage/secure-credentials) as an envionrment varible named TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN.
+Run the Node.js program.</br>
 
 ## Running the demonstration 
 
