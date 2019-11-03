@@ -7,7 +7,10 @@ This is a Node.js program to demonstrate the Twilio Programmable SMS API by send
 Step 1.  Install Node.js.</br>
 Step 2.  Install MySQL.</br>
 Step 3.  Install [Express](https://expressjs.com/).</br>
-Step 4.  Run the Node.js program.</br>
+Step 4.  Install [Twilio helper libraries](https://www.twilio.com/docs/libraries/node).</br>
+Step 5.  Install the [MySQL node Module](https://www.npmjs.com/package/mysql).</br>
+Step 6.  Input your twilio phone in the config file as the "from" number.</br>
+Step 7.  Run the Node.js program with the commands "node questions.js".</br>
 
 ## Running the demonstration
 

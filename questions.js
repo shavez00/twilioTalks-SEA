@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
   const player = req.body.From.slice(1);
   const twiml = new MessagingResponse();
   const response = body.toLowerCase().trim();
-  let command = '';
+  let playerName = '';
   let registration = '';
 
   var con = mysql.createConnection({
@@ -54,6 +54,7 @@ app.post('/', (req, res) => {
             if (err) throw err;
             console.log(player + " player created");
           });
+          checkForName(player, con);
           client.messages
             .create({
                body: 'Registered!',
@@ -231,4 +232,33 @@ function getQuestion(player, con, questionNum) {
         resolve(result[0].question);
     });
   });
+}
+
+function checkForName(player, con) {
+  async function nameGather(player) {
+    let lookup = client.lookups.phoneNumbers('+' + player)
+          .fetch({type: ['caller-name']})
+          .then(info => {
+            var name = info.callerName.caller_name;
+            name = name.substring(0, name.indexOf(' '));
+            return name;
+          });
+
+      let result = await lookup;
+
+      return (result);
+  }
+
+  nameGather(player).then(name => {
+    //query the database to see if the first question has been answered
+    let sql = "UPDATE participantAnswers SET name='" + name + "' where phone_num='" + player + "'";
+    con.query(sql, function (err, result) {
+      if (err) console.log(err);
+      console.log(player + " also has the name of " + name);
+    });
+
+  }).catch(err => {
+    console.log(err);
+    //console.log("Phone lookup failed");
+  })
 }

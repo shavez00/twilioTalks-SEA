@@ -1,4 +1,12 @@
 #!/bin/bash
+echo What is your account SID?
+read sid
+export TWILIO_ACCOUNT_SID=$sid
+
+echo What is your Twilio Auth Token?
+read auth
+export TWILIO_AUTH_TOKEN=$auth
+
 echo What is the user name you want to use to access the database?
 read username
 export DATABASE_USER_NAME=$username
@@ -22,7 +30,7 @@ export DATABASE=$database
 mysql -u $username -e "CREATE DATABASE $database; USE $database; CREATE TABLE questions (qid int NOT NULL AUTO_INCREMENT, question VARCHAR(255), answer VARCHAR(255), PRIMARY KEY(qid));"
 echo Database created
 
-mysql -u $username -e "USE $database; CREATE TABLE participantAnswers (pid int NOT NULL AUTO_INCREMENT, phone_num VARCHAR(255), PRIMARY KEY(pid));"
+mysql -u $username -e "USE $database; CREATE TABLE participantAnswers (pid int NOT NULL AUTO_INCREMENT, phone_num VARCHAR(255), name VARCHAR(255), PRIMARY KEY(pid));"
 
 
 echo How many questions are you going to ask in the survey?
