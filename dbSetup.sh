@@ -7,6 +7,10 @@ echo What is your Twilio Auth Token?
 read auth
 export TWILIO_AUTH_TOKEN=$auth
 
+echo What is your Twilio phone number \(please input the phone number as 11 digits, no dashes, no parenthesis, no plus sign\)?
+read phone
+echo -e "module.exports.from = '+$phone';" >> ./config
+
 echo What is the user name you want to use to access the database?
 read username
 export DATABASE_USER_NAME=$username
